@@ -2,6 +2,7 @@ from Card import Card
 from Hand import Hand
 from Deck import Deck
 from Player import Player
+from Opponent import Opponent
 from ev_calculations import determine_best_hand, calculate_ev, calculate_raise_amount
 from gto_strategy import calculate_gto_strategy, update_gto_strategy
 from player_actions import fold, call, raise_, game_is_not_over
@@ -12,7 +13,7 @@ from player_actions import fold, call, raise_
 def run_game_loop(player, opponent):
     # initialize game state
     player = Player('Alice', 100)
-    opponent = Player('Bob', 100)
+    opponent = Opponent('Bob', 100)
     hand = player.hand
     board = []
     deck = Deck()
@@ -30,5 +31,5 @@ def run_game_loop(player, opponent):
         elif gto_strategy == 'call':
             call(player, get_current_bet(), calculate_pot_size())
         elif gto_strategy == 'raise':
-            raise_amount = calculate_raise_amountmak
+            raise_amount = calculate_raise_amount(get_current_bet(), player.stack_size, calculate_pot_size())
             raise_(player, raise_amount, calculate_pot_size())
