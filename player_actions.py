@@ -17,11 +17,19 @@ It then calculates the pot size and updates the stack sizes of the player and op
 '''
 
 
-def fold():
+def fold(player, opponent, pot_size):
     # code to execute a fold action
-    # update game state to reflect the fold action
     player.in_hand = False
     # update player and opponent stack sizes
-    pot_size = calculate_pot_size()
     player.stack_size -= pot_size / 2
     opponent.stack_size += pot_size / 2
+
+def call(player, current_bet, pot_size):
+    # code to execute a call action
+    player.stack_size -= current_bet
+    pot_size += current_bet
+
+def raise_(player, raise_amount, pot_size):
+    # code to execute a raise action
+    player.stack_size -= raise_amount
+    pot_size += raise_amount
