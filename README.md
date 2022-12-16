@@ -1,12 +1,50 @@
-# Poker-EV-HUD
-This GitHub project is focused on building an EV Heads Up Display (HUD) for the popular card game Texas Holdem using the Python programming language. The HUD is a tool that allows players to keep track of their opponents' statistics and tendencies during a game, which can help them make more informed decisions. This project aims to create a lightweight and user-friendly HUD that can be easily integrated into existing Texas Holdem software. The Python code will be well-documented and accompanied by instructions on how to set up and use the HUD. This project will be beneficial for Texas Holdem players who want to improve their game by gaining a competitive edge.
-
+#Poker EV Calculation
+This project is focused on building a tool to calculate the expected value (EV) of poker hands in the popular card game Texas Holdem. The tool will allow players to make more informed decisions by analyzing the EV of different hand scenarios and betting strategies.
 
 ### Structured Organisation of Poker EV Calculator
-1. card.py: This file should contain the implementation of the Card class.
-2. hand.py: This file should contain the implementation of the Hand class.
-3. deck.py: This file should contain the implementation of the Deck class.
-4. ev_calculations.py: This file should contain the implementation of the determine_best_hand, calculate_ev, and calculate_raise_amount functions.
-5. gto_strategy.py: This file should contain the implementation of the calculate_gto_strategy and update_gto_strategy functions.
-6. game_loop.py: This file should contain the implementation of the game loop that initializes the game state, prompts the player for an action, updates  the game state and GTO strategy, and executes the GTO strategy.
-7. main.py: This file should contain the code to run the Poker EV calculation program. It should import the necessary classes and functions from the other files and call the functions to initialize the game and start the game loop.
+The project is organized into the following files and directories:
+
+1. ev_calculator.py: contains the EVCalculator class, which is responsible for calculating the EV of a hand scenario.
+2. Card.py: contains the Card class, which represents a playing card.
+3. Hand.py: contains the Hand class, which represents a poker hand.
+4. Deck.py: contains the Deck class, which represents a deck of playing cards.
+5. game_loop.py: contains the run_game_loop function, which is the main game loop for the poker EV calculation program.
+6. game_state.py: contains functions to update the game state and execute game actions (e.g. fold, call, raise).
+7. gto_strategy.py: contains the calculate_gto_strategy function, which calculates the game theory optimal (GTO) strategy for a given hand and game state.
+8. Player.py: contains the Player class, which represents a poker player.
+9. Opponent.py: contains the Opponent class, which represents an opponent in the game.
+
+##Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+####Prerequisites
+- Python 3.7 or higher
+- A poker software or platform to integrate the EV calculator
+
+####Installing
+To install the EV calculator, follow these steps:
+
+1. Clone the repository to your local machine: git clone https://github.com/user/poker-ev-calculator.git
+
+2. Navigate to the project directory: cd poker-ev-calculator
+
+3. Install the required dependencies: pip install -r requirements.txt
+
+###Usage
+To use the EV calculator, follow these steps:
+
+1. Import the 'ev_calculator' module into your poker software or platform:
+from ev_calculator import ev_calculator
+2. Use the calculate_ev function to calculate the EV of a hand scenario:
+
+hand = [Card('Ace', 'hearts'), Card('King', 'diamonds')]
+board = [Card('Queen', 'hearts'), Card('Jack', 'hearts'), Card('Ten', 'hearts')]
+stack_size = 1000
+opponent_stack_sizes = [500, 1000, 2000]
+bet_sizes = [100, 200, 300]
+ev = ev_calculator.calculate_ev(hand, board, stack_size, opponent_stack_sizes, bet_sizes)
+print(ev)
+
+
+###Contributing
+We welcome contributions to this project. If you have an idea for a feature or improvement, please open an issue to discuss it before submitting a pull request.
