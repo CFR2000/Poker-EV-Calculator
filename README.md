@@ -30,14 +30,14 @@ git clone https://github.com/user/poker-ev-calculator.git
 '''
 
 2. Navigate to the project directory: 
-'''
+```
 cd poker-ev-calculator
-'''
+```
 
 3. Install the required dependencies: 
-'''
+```
 pip install -r requirements.txt
-'''
+```
 
 ### *Usage*
 To use the EV calculator, follow these steps:
@@ -47,7 +47,7 @@ from ev_calculator import ev_calculator
 
 2. Use the calculate_ev function to calculate the EV of a hand scenario:
 
-'''
+```python
 hand = [Card('Ace', 'hearts'), Card('King', 'diamonds')]
 board = [Card('Queen', 'hearts'), Card('Jack', 'hearts'), Card('Ten', 'hearts')]
 stack_size = 1000
@@ -55,8 +55,7 @@ opponent_stack_sizes = [500, 1000, 2000]
 bet_sizes = [100, 200, 300]
 ev = ev_calculator.calculate_ev(hand, board, stack_size, opponent_stack_sizes, bet_sizes)
 print(ev)
-'''
-
+```
 
 ### *Contributing*
 We welcome contributions to this project. If you have an idea for a feature or improvement, please open an issue to discuss it before submitting a pull request.
